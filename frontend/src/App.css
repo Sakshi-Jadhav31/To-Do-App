@@ -1,0 +1,579 @@
+* {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #8b5cf6;
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-light: #334155;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Auth Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--background);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+}
+
+.auth-card {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--surface-light);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  color: var(--text-muted);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: var(--background);
+  border: 1px solid var(--surface-light);
+  border-radius: 0.75rem;
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--gradient);
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+}
+
+.auth-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background: var(--surface);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--surface-light);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-content p {
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface-light);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: var(--danger);
+}
+
+.dashboard-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Stats */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--surface-light);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.stat-card.total .stat-number { color: var(--primary); }
+.stat-card.completed .stat-number { color: var(--success); }
+.stat-card.pending .stat-number { color: var(--warning); }
+
+/* Todos Section */
+.todos-section {
+  background: var(--surface);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--surface-light);
+}
+
+.todos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.todos-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.todos-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.filter-group select {
+  padding: 0.5rem 1rem;
+  background: var(--background);
+  border: 1px solid var(--surface-light);
+  border-radius: 0.5rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--gradient);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px -5px rgba(99, 102, 241, 0.5);
+}
+
+/* Todo Form */
+.todo-form {
+  background: var(--background);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--surface-light);
+}
+
+.todo-form input,
+.todo-form textarea,
+.todo-form select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-light);
+  border-radius: 0.5rem;
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.todo-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.todo-form input:focus,
+.todo-form textarea:focus,
+.todo-form select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-row select,
+.form-row input {
+  margin-bottom: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submit-btn,
+.save-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem;
+  background: var(--success);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-btn:hover,
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+.cancel-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem;
+  background: var(--surface-light);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+  background: var(--danger);
+}
+
+/* Todo Item */
+.todos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--background);
+  border-radius: 0.75rem;
+  border: 1px solid var(--surface-light);
+  transition: all 0.2s;
+}
+
+.todo-item:hover {
+  border-color: var(--primary);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+}
+
+.todo-item.editing {
+  flex-direction: column;
+}
+
+.todo-checkbox {
+  cursor: pointer;
+  padding-top: 0.25rem;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--surface-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.checkbox.checked {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.todo-content {
+  flex: 1;
+}
+
+.todo-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.todo-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.todo-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.priority-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.due-date {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 0.5rem;
+  background: var(--surface-light);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.delete-btn:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.edit-input {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.edit-textarea {
+  min-height: 60px;
+}
+
+.edit-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.edit-row select,
+.edit-row input {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-light);
+  border-radius: 0.5rem;
+  color: var(--text);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Empty & Loading States */
+.empty-state,
+.loading-todos {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 2rem;
+  }
+  
+  .dashboard-main {
+    padding: 1rem;
+  }
+  
+  .todos-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .todos-actions {
+    justify-content: space-between;
+  }
+  
+  .form-row,
+  .edit-row {
+    grid-template-columns: 1fr;
+  }
+}
